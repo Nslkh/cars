@@ -11,6 +11,6 @@ class Car extends Model
 
     protected $table = 'cars';
 
-    protected $primaryKey = 'id';// false if u dont want
+    protected $primaryKey = 'id';
 
 }
