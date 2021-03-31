@@ -27,7 +27,7 @@
               Edit &rarr;
             </a>
 
-            <form action="/cars/{{ $car->id }}"class="pt-3" method="POST">
+            <form action="/cars/{{ $car->id }}" class="pt-3" method="POST">
               @csrf
               @method('delete')
               <button 
