@@ -3,8 +3,9 @@
 ## Creat  laravel app 
 - laravel new cars
 
-- composer require laravel-frontend-presets/tailwindcss --dev
-- npm install && npm run dev 
+-composer require laravel-frontend-presets/tailwindcss --dev
+- php artisan ui tailwindcss
+- npm install && npm run dev
 
 ## Model & Migration
 - php artisan make:model Car -m
@@ -22,3 +23,4 @@
        - return view('index');
    -  } ````` 
 - Go to resources, views  delete welcome.blade.php  -- create cars folder - index.blade.php
+- Go to resources, views   -- create layouts folder - app.blade.php
