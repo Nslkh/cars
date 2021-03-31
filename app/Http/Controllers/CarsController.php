@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class CarsController extends Controller
@@ -14,7 +15,13 @@ class CarsController extends Controller
     // We dont need to define every single route in our web.php file  Instead we've  defined them in one  single command
     public function index()
     {
-        return view('index');
+        // SELECT * FROM cars
+        $cars = Car::all();
+
+    
+        return view('index', [
+            'cars' => $cars
+        ]);
     }
 
     /**

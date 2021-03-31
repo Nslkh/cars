@@ -10,18 +10,20 @@
   
 
     <div class="w-5/6 py-10">
-      <div class="m-auto">
-        <span class="uppercase text-blue-500 font-bold text-xs italic"> 
-          Founded:2021
-        </span>
-        <h2 class="text-gray-700 text-5xl">
-          Toyota
-        </h2>
-        <p class="text-lg text-gray-700 py-6">
-          The Toyota Motor Corporation is a Japanese multinational automotive manufacturer headquartered in Toyota, Aichi, Japan. It was founded by Kiichiro Toyoda and incorporated on August 28, 1937
-        </p>
-        <hr class="mt-4 mb-8">
-      </div>
+      @foreach ($cars as $car)
+        <div class="m-auto">
+          <span class="uppercase text-blue-500 font-bold text-xs italic"> 
+            Founded:{{ $car->founded }}
+          </span>
+          <h2 class="text-gray-700 text-5xl">
+            {{ $car->name }}
+          </h2>
+          <p class="text-lg text-gray-700 py-6">
+            {{ $car->description }}
+          </p>
+          <hr class="mt-4 mb-8">
+        </div>
+      @endforeach
     </div>
   </div>
 @endsection
