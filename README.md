@@ -67,4 +67,16 @@
 - create method     ```protected $fillable = ['name', 'founded', 'description']```
 
 ## We are done with Create Page
- 
+
+## Update 
+- Go to views cars folder - Create ```edit.blade.php```
+- Go to CarsController
+- ```$car = Car::find($id)->first();```
+   - ```return view('cars.edit')->with('car', $car);```
+
+-  ```$car = Car::where('id', $id)```
+    ```- ->update([```
+        - ```'name' => $request->input('name'),```
+        - ```'founded' => $request->input('founded'),```
+        - ```'description' => $request->input('description'),```
+- ]);   
