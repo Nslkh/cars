@@ -54,6 +54,7 @@ class CarsController extends Controller
             'founded' => $request->input('founded'),
             'description' => $request->input('description'),
         ]);
+        // We can use make instead of create but need to save as well
 
         return redirect('/cars');
     }
