@@ -83,3 +83,11 @@
 
 
 ## We are done with Update Page
+
+## Delete 
+- Go to CarsController
+ - $car = Car::find($id)->first();
+
+    - $car->delete();
+
+      -  return redirect('/cars');
