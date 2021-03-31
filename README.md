@@ -65,4 +65,6 @@
 
 - Go to Models Car 
 - create method     ```protected $fillable = ['name', 'founded', 'description']```
+
+## We are done with Create Page
  
