@@ -11,9 +11,10 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // We dont need to define every single route in our web.php file  Instead we've  defined them in one  single command
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
