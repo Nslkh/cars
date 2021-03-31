@@ -27,16 +27,16 @@
 
 ## Database
 - ```create db and config in .env file```
-- php artisan migrate
+- ```php artisan migrate```
 
 ## How to retrieve data with eloquent 
 - Go to Models -- Car  method 
 - protected $table = 'cars';
 - protected $primaryKey = 'id';// false if u dont want
 - Go to CarsController
--   $cars = Car::all();
+-   ```$cars = Car::all();```
 - return view('index', [
-    - 'cars' => $cars
+    - ```'cars' => $cars```
 - ]);
 
 -  ```In our index.blade.php we are looping and getting data from our db```
@@ -48,17 +48,17 @@
 - Go to views cars folder - Create ``` create.blade.php```
 - Go to CarsController
 - $car = new Car;
-    - $car->name = $request->input('name');
-    - $car->founded = $request->input('founded');
-    - $car->description = $request->input('description');
-    - $car->save();
+    - ```$car->name = $request->input('name');```
+    - ```$car->founded = $request->input('founded');```
+    - ```$car->description = $request->input('description');```
+    - ```$car->save();```
 
 ##  The other way to create data bu Passing array to model
 
 - $car = Car::create([
-   - 'name' => $request->input('name'),
-   - 'founded' => $request->input('founded'),
-   - 'description' => $request->input('description'),
+   - ```'name' => $request->input('name'),```
+   - ```'founded' => $request->input('founded'),```
+   - ```'description' => $request->input('description'),```
 - ]);
 
 - return redirect('/cars')
