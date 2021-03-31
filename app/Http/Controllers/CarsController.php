@@ -16,8 +16,18 @@ class CarsController extends Controller
     public function index()
     {
         // SELECT * FROM cars
-        $cars = Car::where('name', '=', 'Toyota')
-        ->get();
+        // $cars = Car::where('name', '=', 'Toyota')->firstOrFail();
+        $cars = Car::all();
+
+        // print_r(Car::where('name', 'Audi')->count());
+        // print_r(Car::all()->count());
+        // print_r(Car::sum('founded'));
+
+        // $cars = Car::chunk(2, function ($cars) {
+        //     foreach($cars as $car) {
+        //         print_r($car);
+        //     }
+        // });
 
     
         return view('index', [

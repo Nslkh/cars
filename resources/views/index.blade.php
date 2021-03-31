@@ -7,7 +7,7 @@
         Cars
       </h1>
     </div>
-  
+
 
     <div class="w-5/6 py-10">
       @foreach ($cars as $car)
