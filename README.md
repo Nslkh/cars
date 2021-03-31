@@ -40,3 +40,9 @@
 - ]);
 
 - In our index.blade.php we are looping and getting data from our db
+- We are done with Index Page
+
+## Proceed with the create method
+
+- return view('cars.create');
+- Go to views cars folder - ```Create create.blade.php```
