@@ -46,3 +46,23 @@
 
 - return view('cars.create');
 - Go to views cars folder - Create ``` create.blade.php```
+- Go to CarsController
+- $car = new Car;
+    - $car->name = $request->input('name');
+    - $car->founded = $request->input('founded');
+    - $car->description = $request->input('description');
+    - $car->save();
+
+##  The other way to create data bu Passing array to model
+
+- $car = Car::create([
+   - 'name' => $request->input('name'),
+   - 'founded' => $request->input('founded'),
+   - 'description' => $request->input('description'),
+- ]);
+
+- return redirect('/cars')
+
+- Go to Models Car 
+- create method     ```protected $fillable = ['name', 'founded', 'description']```
+ 

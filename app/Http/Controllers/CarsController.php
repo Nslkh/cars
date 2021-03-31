@@ -41,11 +41,19 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        $car = new Car;
-        $car->name = $request->input('name');
-        $car->founded = $request->input('founded');
-        $car->description = $request->input('description');
-        $car->save();
+        // $car = new Car;
+        // $car->name = $request->input('name');
+        // $car->founded = $request->input('founded');
+        // $car->description = $request->input('description');
+        // $car->save();
+
+        // Passing array to model
+
+        $car = Car::create([
+            'name' => $request->input('name'),
+            'founded' => $request->input('founded'),
+            'description' => $request->input('description'),
+        ]);
 
         return redirect('/cars');
     }
