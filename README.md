@@ -26,7 +26,7 @@
 - Go to resources, views   -- create ```layouts folder - app.blade.php```
 
 ## Database
-- create db and config in .env file
+- ```create db and config in .env file```
 - php artisan migrate
 
 ## How to retrieve data with eloquent 
@@ -39,8 +39,8 @@
     - 'cars' => $cars
 - ]);
 
-- In our index.blade.php we are looping and getting data from our db
-- We are done with Index Page
+-  ```In our index.blade.php we are looping and getting data from our db```
+## We are done with Index Page
 
 ## Proceed with the create method
 
