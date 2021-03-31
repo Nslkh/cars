@@ -24,3 +24,19 @@
    -  } ````` 
 - Go to resources, views  delete welcome.blade.php  -- create cars folder - index.blade.php
 - Go to resources, views   -- create layouts folder - app.blade.php
+
+## Database
+- create db and config in .env file
+- php artisan migrate
+
+## How to retrieve data with eloquent 
+- Go to Models -- Car  method 
+- protected $table = 'cars';
+- protected $primaryKey = 'id';// false if u dont want
+- Go to CarsController
+-   $cars = Car::all();
+- return view('index', [
+    - 'cars' => $cars
+- ]);
+
+- In our index.blade.php we are looping and getting data from our db
