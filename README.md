@@ -1,4 +1,40 @@
-## APP Instruction
+
+# Laravel base web application for writing comments
+## Used technologies
+- ```PHP```
+- ```Laravel```
+- ```MySQL```
+- ```TailwindCSS```
+
+
+## How to run
+1. ```git clone https://github.com/Nslkh/cars```
+2. Enter you credentials in .env file
+     - Database info
+    ```
+   ...
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=cars
+    DB_USERNAME=root
+    DB_PASSWORD=
+   ...
+   
+  
+
+## What's made
+- `CRUD APP`
+
+## Screenshots
+## Main Page
+![](https://hosty.xxx/i/54ac4d515b1e0a0aa0e199d46a9cf7e5b0de2e2b.jpg)
+
+## Create
+![](https://hosty.xxx/i/60f9cbe2547bc25df210828f36f989065b7cf5d1.jpg)
+
+
+## More Detailed  APP Instruction
 
 ## Creat  laravel app 
 - ```laravel new cars```
@@ -26,7 +62,7 @@
 - Go to resources, views   -- create ```layouts folder - app.blade.php```
 
 ## Database
-- ```create db and config in .env file```
+- ```create db and Enter you credentials in .env file```
 - ```php artisan migrate```
 
 ## How to retrieve data with eloquent 
