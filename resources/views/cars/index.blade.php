@@ -4,14 +4,14 @@
   <div class="m-auto  w-4/5 py-24">
     <div class="text-center">
       <h1 class="text-5xl uppercase bold">
-        Cars
+        Cars 
       </h1>
     </div>
 
     <div class="pt-10">
       <a href="cars/create"
       class="border-b-2 pb-2 border-dotted italic text-gray-500">
-        Add a new car &rarr;
+        Add a new car &rarr; 
       </a>
     </div>
 
