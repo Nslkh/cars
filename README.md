@@ -127,3 +127,13 @@
     - $car->delete();
 
       -  return redirect('/cars');
+'''
+## What is Eloquent Serialization
+So what we have done so far was doing a request to the DB in order to find one or multiple rows ,
+## why serialization is used
+ we're returning collection which u can see as an array on steroids but what if u want to convert it into a string thats when u could use serialization ,
+- Serialization can be very complex for db records
+- Methods
+    - To Array
+    - To Json
+'''      
