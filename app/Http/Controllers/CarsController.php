@@ -18,7 +18,7 @@ class CarsController extends Controller
         $cars = Car::all()->toJson();
         $cars = json_decode($cars);
 
-        // var_dump($cars);
+        var_dump($cars);
     
         return view('cars.index', [
             'cars' => $cars
