@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @foreach ($cars as $car)
-    {{ $car['name'] }}
+    {{ $car->name}}
 @endforeach
 @section('content')
   <div class="m-auto  w-4/5 py-24">
@@ -26,7 +26,7 @@
             <a
             class="border-b-2 pb-2 border-dotted italic 
             text-green-500"
-             href= "cars/edit"> --}}
+             href= "cars/edit"> 
               Edit &rarr;
             </a>
 
