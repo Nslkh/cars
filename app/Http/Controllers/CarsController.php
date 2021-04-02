@@ -15,10 +15,7 @@ class CarsController extends Controller
     // We dont need to define every single route in our web.php file  Instead we've  defined them in one  single command
     public function index()
     {
-        $cars = Car::all()->toJson();
-        $cars = json_decode($cars);
-
-        var_dump($cars);
+        $cars = Car::all();
     
         return view('cars.index', [
             'cars' => $cars
