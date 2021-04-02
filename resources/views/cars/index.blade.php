@@ -45,7 +45,7 @@
             {{ $car->name }}
           </h2>
           <p class="text-lg text-gray-700 py-6">
-            {{ $car->description }}
+            {{ $car->description }} 
           </p>
           <hr class="mt-4 mb-8">
         </div>
