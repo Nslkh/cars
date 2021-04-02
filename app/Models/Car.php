@@ -18,4 +18,9 @@ class Car extends Model
     protected $hidden = ['updated_at'];
 
     protected $visible = ['name'];
+
+    public function carModels()
+    {
+        return $this->hasMany(CarModel::class);
+    }
 }
