@@ -38,9 +38,19 @@
                   <td class="border-4 border-gray-500">
                     {{ $model->model_name }}
                   </td>
+                  
+                  <td class="border-4 border-gray-500">
+                    @foreach ($car->engine as $engine)
+                      @if ($model->id == $engine->model_id) 
+                          {{ $engine->engine_name }}
+                      @endif
+                    @endforeach
+                  </td>
                 </tr>
             @empty
-                
+                <p>
+                  No car models found
+                </p>
             @endforelse
           </table>
           <hr class="mt-4 mb-8">
