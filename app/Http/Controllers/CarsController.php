@@ -51,6 +51,44 @@ class CarsController extends Controller
         // $car->description = $request->input('description');
         // $car->save();
 
+        //Request all input fields
+        // $test = $request->all();
+
+        //Except Method
+
+        // $test = $request->except(['_token', 'name']);
+        // $test = $request->only(['_token', 'name']);
+
+        // Has method
+        // $test = $request->has('founded');
+
+        // if ($request->has('founded')) {
+        //     dd("Found");
+        // }
+
+        // // Current Path
+
+        // if ($request->is('cars')) {
+        //     dd('endpoins is cars');
+        // }
+
+        // //Current Method
+
+        // if ($request->method('post')) {
+        //     dd('method is post');
+        // }
+
+        // // Show the URL
+
+        // dd($request->URL());
+
+        // Show the IP
+
+        dd($request->IP());
+        
+
+        
+
         // Passing array to model
 
         $car = Car::create([
