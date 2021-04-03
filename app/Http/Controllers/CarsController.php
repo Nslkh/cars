@@ -15,9 +15,12 @@ class CarsController extends Controller
     // We dont need to define every single route in our web.php file  Instead we've  defined them in one  single command
     public function index()
     {
-        $cars = Car::all();
-      
-   
+
+        // Query Builder
+        // $cars = DB::table('cars')->paginate(4);
+
+
+        $cars = Car::paginate(3);
     
         return view('cars.index', [
             'cars' => $cars
@@ -68,8 +71,6 @@ class CarsController extends Controller
     public function show($id)
     {
         $car = Car::find($id);
-
-  
 
         return view('cars.show')->with('car', $car);
     }
