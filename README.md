@@ -89,7 +89,7 @@
     - ```$car->description = $request->input('description');```
     - ```$car->save();```
 
-##  The other way to create data bu Passing array to model
+##  The other way to create data by Passing array to model
 
 - $car = Car::create([
    - ```'name' => $request->input('name'),```
@@ -127,4 +127,17 @@
     - $car->delete();
 
       -  return redirect('/cars');
+
+## Continuation of the project to make it more functional      
+
+## What is Eloquent Serialization
+...
+So what we have done so far was doing a request to the DB in order to find one or multiple rows ,
+## why serialization is used
+ we're returning collection which u can see as an array on steroids but what if u want to convert it into a string thats when u could use serialization ,
+- Serialization can be very complex for db records
+- Methods
+    - To Array 
+    - To Json
+...
 
