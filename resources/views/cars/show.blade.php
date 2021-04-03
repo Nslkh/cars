@@ -23,14 +23,17 @@
             {{ $car->description }}
           </p>
 
-          <table class="table-auto">
+          <table class="table-auto ">
             <tr class="bg-blue-100">
-              <th class="w-1/2 border-4 border-gray-500">
+              <th class="w-1/4 border-4 border-gray-500">
                 Model
               </th>      
-              <th class="w-1/2 border-4 border-gray-500">
+              <th class="w-1/4 border-4 border-gray-500">
                 Engines
-              </th>          
+              </th>    
+              <th class="w-1/4 border-4 border-gray-500">
+                Dates
+              </th>      
             </tr>
 
             @forelse ($car->carModels as $model)
@@ -45,6 +48,10 @@
                           {{ $engine->engine_name }}
                       @endif
                     @endforeach
+                  </td>
+
+                  <td class="border-4 border-gray-500">
+                    {{ date('d-m-Y', strtotime($car->productionDate->created_at)) }}
                   </td>
                 </tr>
             @empty

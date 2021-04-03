@@ -69,8 +69,6 @@ class CarsController extends Controller
     {
         $car = Car::find($id);
 
-        // dd($car->engine);
-
         return view('cars.show')->with('car', $car);
     }
 

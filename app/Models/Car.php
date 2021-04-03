@@ -37,4 +37,16 @@ class Car extends Model
             'model_id', //Foreign key on Engine table
         );
     }
+
+    // Define a has one  through relationship
+
+    public function productionDate()
+    {
+        return $this->hasOneThrough(
+            CarProductionDate::class,
+            CarModel::class,
+            'car_id',
+            'model_id',
+        );
+    }
 }
