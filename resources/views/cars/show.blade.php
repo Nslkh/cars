@@ -60,6 +60,17 @@
                 </p>
             @endforelse
           </table>
+
+          <p class="text-left">
+            Products Type:
+            @forelse ($car->producs as $product)
+                {{ $product->name }}
+            @empty
+                <p>
+                  No car products description
+                </p>
+            @endforelse
+          </p>
           <hr class="mt-4 mb-8">
         </div>
     </div>
