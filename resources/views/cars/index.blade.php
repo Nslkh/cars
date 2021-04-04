@@ -20,10 +20,7 @@
         Please login to add a new car
       </p>
     @endif
-
-   
-
-
+    
     <div class="w-5/6 py-10">
       @foreach ($cars as $car)
         <div class="m-auto">
