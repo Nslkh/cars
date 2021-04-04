@@ -47,7 +47,32 @@ class CarsController extends Controller
      */
     public function store(CreateValidationRequest $request)
     {
-        $request->validated();
+
+        // Method we can use on $request
+        // guessExtention
+        // getMimeType
+        // store()
+        // asStore()
+        // storePublicly()
+        // move()
+        // getClientOriginalName()
+        //getSize
+        //getError
+        //isValid
+
+        $request->validated([
+            'name' => 'required',
+            'founded' => 'required|integer|min:0|max:2021',
+            'description' => 'required|',
+            'image' => 'required|mimes:png,jpg,jpeg|max:5048',
+        ]);
+
+        $newImageName = time() . '-' . $request->name . '.' .
+        $request->image->extension();
+
+        $request->image->move(public_path('images'), $newImageName);
+
+
               
 
         // Passing array to model
@@ -56,6 +81,7 @@ class CarsController extends Controller
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
             'description' => $request->input('description'),
+            'image_path' =>  $newImageName
         ]);
 
         return redirect('/cars');
