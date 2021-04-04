@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2021 at 03:32 PM
+-- Generation Time: Apr 04, 2021 at 12:13 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -33,16 +33,97 @@ CREATE TABLE `cars` (
   `founded` int(11) NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`id`, `name`, `founded`, `description`, `created_at`, `updated_at`) VALUES
-(15, 'Toyota', 1937, 'Toyota Motor Corp. engages in the manufacture and sale of motor vehicles and parts. It operates through the following segments: Automotive, Financial Services, and All Other. The Automotive segment designs, manufactures, assembles and sells passenger cars, minivans, trucks, and related vehicle parts and accessories.', '2021-04-01 01:18:05', '2021-04-01 01:18:05'),
-(16, 'Lamborghini', 1963, 'Automobili Lamborghini S.p.A. is an Italian brand and manufacturer of luxury sports cars and SUVs based in Sant\'Agata Bolognese. The company is owned by the Volkswagen Group through its subsidiary Audi.', '2021-04-01 01:19:41', '2021-04-01 01:19:41');
+INSERT INTO `cars` (`id`, `name`, `founded`, `description`, `created_at`, `updated_at`, `image_path`) VALUES
+(9, 'Mercedes', 1987, 'Mercedes-Benz, commonly referred to as Mercedes, is both a German automotive marque and, from late 2019 onwards, a subsidiary – as Mercedes-Benz AG – of Daimler AG. Mercedes-Benz is known for producing luxury vehicles and commercial vehicles. The headquarters is in Stuttgart, Baden-', '2021-04-04 05:02:19', '2021-04-04 05:04:27', '1617530539-Mercedes.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car_models`
+--
+
+CREATE TABLE `car_models` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `car_id` int(10) UNSIGNED NOT NULL,
+  `model_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `car_models`
+--
+
+INSERT INTO `car_models` (`id`, `car_id`, `model_name`, `created_at`, `updated_at`) VALUES
+(5, 9, 'CL', NULL, NULL),
+(6, 9, 'GLS', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car_product`
+--
+
+CREATE TABLE `car_product` (
+  `car_id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `car_product`
+--
+
+INSERT INTO `car_product` (`car_id`, `product_id`) VALUES
+(9, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car_production_dates`
+--
+
+CREATE TABLE `car_production_dates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `model_id` int(10) UNSIGNED NOT NULL,
+  `created_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `car_production_dates`
+--
+
+INSERT INTO `car_production_dates` (`id`, `model_id`, `created_at`) VALUES
+(3, 5, '2021-03-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `engines`
+--
+
+CREATE TABLE `engines` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `model_id` int(10) UNSIGNED NOT NULL,
+  `engine_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `engines`
+--
+
+INSERT INTO `engines` (`id`, `model_id`, `engine_name`, `created_at`, `updated_at`) VALUES
+(5, 5, 'M256', NULL, NULL),
+(6, 6, 'LC478', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -63,6 +144,21 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `headquarters`
+--
+
+CREATE TABLE `headquarters` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `car_id` int(10) UNSIGNED NOT NULL,
+  `headquarters` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -77,10 +173,16 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2021_03_31_165211_create_cars_table', 1);
+(9, '2014_10_12_000000_create_users_table', 1),
+(10, '2014_10_12_100000_create_password_resets_table', 1),
+(11, '2019_08_19_000000_create_failed_jobs_table', 1),
+(12, '2021_03_31_165211_create_cars_table', 1),
+(13, '2021_04_03_083206_create_headquarters_table', 2),
+(14, '2021_04_03_091841_create_engines_table', 3),
+(15, '2021_04_03_110239_create_car_production_dates_table', 4),
+(17, '2021_04_03_184145_create_products_table', 5),
+(19, '2021_04_03_190015_create_car_products_table', 6),
+(20, '2021_04_04_072920_add_image_to_cars_table', 7);
 
 -- --------------------------------------------------------
 
@@ -93,6 +195,29 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(4, 'Luxury Cars', NULL, NULL),
+(5, 'Luxury Car', NULL, NULL),
+(6, 'Sport Car', NULL, NULL),
+(7, 'Luxury car', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -122,11 +247,46 @@ ALTER TABLE `cars`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `car_models`
+--
+ALTER TABLE `car_models`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `car_models_car_id_foreign` (`car_id`);
+
+--
+-- Indexes for table `car_product`
+--
+ALTER TABLE `car_product`
+  ADD KEY `car_product_car_id_foreign` (`car_id`),
+  ADD KEY `car_product_product_id_foreign` (`product_id`);
+
+--
+-- Indexes for table `car_production_dates`
+--
+ALTER TABLE `car_production_dates`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `car_production_dates_model_id_foreign` (`model_id`);
+
+--
+-- Indexes for table `engines`
+--
+ALTER TABLE `engines`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `engines_model_id_foreign` (`model_id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `headquarters`
+--
+ALTER TABLE `headquarters`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `headquarters_car_id_foreign` (`car_id`);
 
 --
 -- Indexes for table `migrations`
@@ -139,6 +299,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -155,7 +321,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `car_models`
+--
+ALTER TABLE `car_models`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `car_production_dates`
+--
+ALTER TABLE `car_production_dates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `engines`
+--
+ALTER TABLE `engines`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -164,16 +348,63 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `headquarters`
+--
+ALTER TABLE `headquarters`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `car_models`
+--
+ALTER TABLE `car_models`
+  ADD CONSTRAINT `car_models_car_id_foreign` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `car_product`
+--
+ALTER TABLE `car_product`
+  ADD CONSTRAINT `car_product_car_id_foreign` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `car_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `car_production_dates`
+--
+ALTER TABLE `car_production_dates`
+  ADD CONSTRAINT `car_production_dates_model_id_foreign` FOREIGN KEY (`model_id`) REFERENCES `car_models` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `engines`
+--
+ALTER TABLE `engines`
+  ADD CONSTRAINT `engines_model_id_foreign` FOREIGN KEY (`model_id`) REFERENCES `car_models` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `headquarters`
+--
+ALTER TABLE `headquarters`
+  ADD CONSTRAINT `headquarters_car_id_foreign` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
