@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
         return view('home');
     }
 
+   // Where is your blade file
     public function logout(Request $request)
 {
     Auth::logout();
@@ -33,7 +35,11 @@ class HomeController extends Controller
     $request->session()->invalidate();
 
     $request->session()->regenerateToken();
+     
 
-    return redirect('/');
+    // here is route name . 
+    // return redirect()->route('home');
+    //here is Url
+    return redirect('/cars');
 }
 }
